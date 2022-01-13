@@ -1,0 +1,26 @@
+title {
+  text-align: center;
+}
+
+body {
+  font-family: fantasy;
+  /* font-style: italic; */
+  background-color: #4390D9;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+}
+
+
+h1 {
+  color: black;
+  font-size: 25px;
+}
+
+.player-side {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
