@@ -32,3 +32,16 @@ checkPlayerOneWin() {
     this.player1.addWin();
   }
 }
+
+checkPlayerTwoWin() {
+  if ((this.gameBoard[0] === 1 && this.gameBoard[3] === 1 && this.gameBoard[6] === 1) ||
+  (this.gameBoard[1] === 1 && this.gameBoard[4] === 1 && this.gameBoard[7] === 1) ||
+  (this.gameBoard[2] === 1 && this.gameBoard[5] === 1 && this.gameBoard[8] === 1) ||
+  (this.gameBoard[0] === 1 && this.gameBoard[1] === 1 && this.gameBoard[2] === 1) ||
+  (this.gameBoard[3] === 1 && this.gameBoard[4] === 1 && this.gameBoard[5] === 1) ||
+  (this.gameBoard[6] === 1 && this.gameBoard[7] === 1 && this.gameBoard[8] === 1) ||
+  (this.gameBoard[0] === 1 && this.gameBoard[4] === 1 && this.gameBoard[8])) {
+    this.won = true;
+    this.player2.addWin();
+  }
+}
