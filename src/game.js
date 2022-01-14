@@ -1,11 +1,14 @@
-class Player {
-  constructor(id, token) {
-    this.id = id;
-    this.token = token;
-    this.wins = 0;
+class Game {
+  constructor() {
+    this.player1 = new Player(1, '🧜🏼‍♀️');
+    this.player2 = new Player(2, '🐠');
+    this.gameBoard = [null, null, null, null, null, null, null, null, null];
+    this.turn = this.player;
+    this.won = false;
+    this.totalPlays = 0;
   }
 }
 
-addWin() {
-  this.wins++;
+tallyPlays() {
+  this.totalPlays++;
 }
