@@ -45,3 +45,11 @@ checkPlayerTwoWin() {
     this.player2.addWin();
   }
 }
+
+toggleTurn() {
+  if (this.turn === this.player1) {
+    this.turn = this.player2;
+  } else if (this.turn === this.player 2) {
+    this.turn = this.player1;
+  }
+}
