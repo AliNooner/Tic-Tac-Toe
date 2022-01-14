@@ -10,7 +10,8 @@ html {
 body {
   font-family: fantasy;
   font-style: italic;
-  background-color: #4390D9;
+  /* background-color: #4390D9; */
+  background-color: white;
   height: 100vh;
 }
 
