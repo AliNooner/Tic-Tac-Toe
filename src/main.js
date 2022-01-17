@@ -4,6 +4,8 @@ var currentGame = new Game();
 
 // SELECTORS
 var heading = document.getElementById('header');
+var playerOneWins = document.getElementById("mermaidWins");
+var playerTwoWins = document.getElementById("fishWins");
 
 
 // EVENT LISTENERS
@@ -36,5 +38,13 @@ function displayPlayerIcon() {
   } else if (currentGame.turn === currentGame.player2) {
     event.target.innerText = "🐠";
     event.target.classList.add("disable-click");
+  }
+}
+
+function updateWinsDisplay() {
+  if (currentGame.won === true && currentGame.turn === currentGame.player1) {
+    playerOneWins.innerText = `${currentGame.player1.wins} Wins`
+  } else if (currentGame.won === true && currentGame.turn === currentGame.player2) {
+    playerTwoWins.innerText = `${currentGame.player2.wins} Wins`
   }
 }
