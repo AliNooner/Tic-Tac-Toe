@@ -80,3 +80,29 @@ function disableBoard() {
     }
   }
 }
+
+function clearGameBoard() {
+  setTimeout(function() {resetGameBoard()}, 4000);
+}
+
+function playTurn(event) {
+  for (var i = 0; i < boardBoxes.length; i++) {
+    if (event.target.id === boardBoxes[i].id) {
+      currentGame.assignPlayerSpace(boardBoxes[i].id);
+    }
+  }
+  displayPlayerIcon();
+  currentGame.tallyPlays();
+  currentGame.toggleTurn();
+  updatePlayerTurnDisplay();
+  currentGame.checkPlayerOneWin();
+  currentGame.checkPlayerTwoWin();
+  winGame();
+}
+
+function winGame() {
+  disableBoard();
+  displayWinner();
+  updateWinsDisplay();
+  clearGameBoard();
+}
