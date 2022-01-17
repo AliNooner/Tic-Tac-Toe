@@ -101,3 +101,7 @@ h2 {
 .player-fish {
   background-color: #80FFDB;
 }
+
+.disable-click {
+  pointer-events: none;
+}

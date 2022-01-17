@@ -72,3 +72,11 @@ function resetGameBoard() {
     heading.innerText = "It's 🧜🏼‍♀️'s turn";
   }
 }
+
+function disableBoard() {
+  if (currentGame.won === true) {
+    for (var i = 0; i < boardBoxes.length; i++) {
+      boardBoxes[i].classList.add("disable-click");
+    }
+  }
+}
