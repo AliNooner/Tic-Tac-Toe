@@ -28,3 +28,13 @@ function displayWinner() {
     heading.innerText = "It's a draw!";
   }
 }
+
+function displayPlayerIcon() {
+  if (currentGame.turn === currentGame.player1) {
+    event.target.innerText = "🧜🏼‍♀️";
+    event.target.classList.add("disable-click");
+  } else if (currentGame.turn === currentGame.player2) {
+    event.target.innerText = "🐠";
+    event.target.classList.add("disable-click");
+  }
+}
