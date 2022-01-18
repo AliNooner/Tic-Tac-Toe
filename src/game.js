@@ -3,11 +3,10 @@ class Game {
     this.player1 = new Player(1, '🧜🏼‍♀️');
     this.player2 = new Player(2, '🐠');
     this.gameBoard = [null, null, null, null, null, null, null, null, null];
-    this.turn = this.player;
+    this.turn = this.player1;
     this.won = false;
     this.totalPlays = 0;
   }
-}
 
 tallyPlays() {
   this.totalPlays++;
@@ -49,15 +48,18 @@ checkPlayerTwoWin() {
 toggleTurn() {
   if (this.turn === this.player1) {
     this.turn = this.player2;
-  } else if (this.turn === this.player 2) {
+  } else if (this.turn === this.player2) {
     this.turn = this.player1;
   }
 }
 
-assignPlayerSpace(index) {
+assignSpace(index) {
+  console.log("index", index)
   if (this.turn === this.player1 && this.gameBoard[index] === null) {
     this.gameBoard[index] = 1;
+    console.log(this.gameBoard)
   } else if (this.turn === this.player2 && this.gameBoard[index] === null) {
     this.gameBoard[index] = 2;
   }
+}
 }

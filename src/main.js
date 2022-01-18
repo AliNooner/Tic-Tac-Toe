@@ -3,30 +3,67 @@
 var currentGame = new Game();
 
 // SELECTORS
-var heading = document.getElementById('header');
+var heading = document.getElementById("header");
 var playerOneWins = document.getElementById("mermaidWins");
 var playerTwoWins = document.getElementById("fishWins");
-var boardBoxes = document.querySelector("game-board-box");
+var boardBoxes = document.getElementById("gameBoard");
 
 
 // EVENT LISTENERS
-// window.addEventListener('load', loadPage);
+window.addEventListener('load', loadPage);
+boardBoxes.addEventListener("click", playTurn);
+// {
+//   console.log("I'm also here")
+//     playTurn(event)})
 
 // FUNCTIONS
 
+function loadPage(event) {
+  // console.log(currentGame)
+  // for (var i = 0; i < boardBoxes.length; i++) {
+    // console.log(boardBoxes.length)
+    // boardBoxes.addEventListener("click", function() {
+    //   console.log("I'm also here")
+    //   playTurn(event);
+    // });
+  }
+// }
+
+// function startGame(event) {
+  // playTurn(event);
+// }
+
+function playTurn(event) {
+  console.log(event.target.id)
+  // for (var i = 0; i < currentGame.gameBoard.length; i++) {
+      // console.log(boardBoxes[i].id)
+    // if (event.target.id === boardBoxes[i].id) {
+      // console.log(boardBoxes[i].id)
+      currentGame.assignSpace(event.target.id);
+    // }
+  // }
+  displayPlayerIcon();
+  currentGame.tallyPlays();
+  currentGame.toggleTurn();
+  updatePlayerTurnDisplay();
+  currentGame.checkPlayerOneWin();
+  currentGame.checkPlayerTwoWin();
+  winGame();
+}
+
 function updatePlayerTurnDisplay() {
   if (currentGame.turn === currentGame.player1 && currentGame.won === false) {
-    heading.innerText = "It's 🐠 's turn ";
-  } else if (currentGame.turn === currentGame.player2 && currentGame.won === false) {
     heading.innerText = "It's 🧜🏼‍♀️ 's turn";
+  } else if (currentGame.turn === currentGame.player2 && currentGame.won === false) {
+    heading.innerText = "It's 🐠 's turn";
   }
 }
 
 function displayWinner() {
   if (currentGame.won === true && currentGame.turn === currentGame.player1) {
-    heading.innerText = "🧜🏼‍♀️ won!";
-  } else if (currentGame.won === true && currentGame.turn === currentGame.player2) {
     heading.innerText = "🐠 won!";
+  } else if (currentGame.won === true && currentGame.turn === currentGame.player2) {
+    heading.innerText = "🧜 won!";
   } else if (currentGame.won === false && currentGame.totalPlays === 9) {
     heading.innerText = "It's a draw!";
   }
@@ -34,18 +71,18 @@ function displayWinner() {
 
 function displayPlayerIcon() {
   if (currentGame.turn === currentGame.player1) {
-    event.target.innerText = "🧜🏼‍♀️";
+    event.target.innerText = '🧜🏼‍♀️';
     event.target.classList.add("disable-click");
   } else if (currentGame.turn === currentGame.player2) {
-    event.target.innerText = "🐠";
+    event.target.innerText = '🐠';
     event.target.classList.add("disable-click");
   }
 }
 
 function updateWinsDisplay() {
-  if (currentGame.won === true && currentGame.turn === currentGame.player1) {
+  if (currentGame.won === true && currentGame.turn === currentGame.player2) {
     playerOneWins.innerText = `${currentGame.player1.wins} Wins`
-  } else if (currentGame.won === true && currentGame.turn === currentGame.player2) {
+  } else if (currentGame.won === true && currentGame.turn === currentGame.player1) {
     playerTwoWins.innerText = `${currentGame.player2.wins} Wins`
   }
 }
@@ -85,24 +122,25 @@ function clearGameBoard() {
   setTimeout(function() {resetGameBoard()}, 4000);
 }
 
-function playTurn(event) {
-  for (var i = 0; i < boardBoxes.length; i++) {
-    if (event.target.id === boardBoxes[i].id) {
-      currentGame.assignPlayerSpace(boardBoxes[i].id);
-    }
-  }
-  displayPlayerIcon();
-  currentGame.tallyPlays();
-  currentGame.toggleTurn();
-  updatePlayerTurnDisplay();
-  currentGame.checkPlayerOneWin();
-  currentGame.checkPlayerTwoWin();
-  winGame();
-}
+// function playTurn(event) {
+//   for (var i = 0; i < boardBoxes.length; i++) {
+//     if (event.target.id === boardBoxes[i].id) {
+//       currentGame.assignPlayerSpace(boardBoxes[i].id);
+//     }
+//   }
+//   displayPlayerIcon();
+//   currentGame.tallyPlays();
+//   currentGame.toggleTurn();
+//   updatePlayerTurnDisplay();
+//   currentGame.checkPlayerOneWin();
+//   currentGame.checkPlayerTwoWin();
+//   winGame();
+// }
 
 function winGame() {
   disableBoard();
   displayWinner();
   updateWinsDisplay();
   clearGameBoard();
+  resetGameBoard();
 }
