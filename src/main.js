@@ -7,6 +7,7 @@ var heading = document.getElementById("header");
 var playerOneWins = document.getElementById("mermaidWins");
 var playerTwoWins = document.getElementById("fishWins");
 var boardBoxes = document.getElementById("gameBoard");
+var gameBoardBox = document.querySelector("game-board-box");
 
 
 // EVENT LISTENERS
@@ -102,21 +103,22 @@ function updateWinsDisplay() {
 function resetGameBoard() {
   if (currentGame.won === true || currentGame.totalPlays === 9) {
     currentGame.resetGameClass();
-    for (var i = 0; i < boardBoxes.length; i++) {
-      boardBoxes[i].innerText = "";
-      boardBoxes[i].classList.remove("disable-click");
+    // for (var i = 0; i < boardBoxes.length; i++) {
+      boardBoxes.innerText = null;
+      gameBoardBox.classList.remove("disable-click");
     }
     heading.innerText = "It's 🧜🏼‍♀️'s turn";
   }
-}
+
 
 function disableBoard() {
   if (currentGame.won === true) {
-    for (var i = 0; i < boardBoxes.length; i++) {
-      boardBoxes[i].classList.add("disable-click");
+    // for (var i = 0; i < gameBoardBox.length; i++) {
+      // boardBoxes[i].classList.add("disable-click");
+      boardBoxes.classList.add("disable-click");
     }
   }
-}
+// }
 
 function clearGameBoard() {
   setTimeout(function() {resetGameBoard()}, 4000);
@@ -139,8 +141,8 @@ function clearGameBoard() {
 
 function winGame() {
   disableBoard();
-  displayWinner();
-  updateWinsDisplay();
-  clearGameBoard();
+  // displayWinner();
+  // updateWinsDisplay();
+  // clearGameBoard();
   resetGameBoard();
 }
