@@ -10,7 +10,6 @@ class Game {
 
 tallyPlays() {
   this.totalPlays++;
-  console.log(this.totalPlays)
 }
 
 resetGameClass() {
@@ -57,12 +56,10 @@ toggleTurn() {
 }
 
 assignSpace(index) {
-  console.log("index", index)
   if (this.turn === this.player1 && this.gameBoard[index] === null) {
     this.gameBoard[index] = 1;
-    console.log(this.gameBoard)
   } else if (this.turn === this.player2 && this.gameBoard[index] === null) {
     this.gameBoard[index] = 2;
+    }
   }
-}
 }

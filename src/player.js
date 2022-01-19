@@ -5,7 +5,7 @@ class Player {
     this.wins = 0;
   }
 
-addWin() {
-  this.wins+= 1;
-}
+  addWin() {
+    this.wins += 1;
+  }
 }
