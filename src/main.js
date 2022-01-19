@@ -108,34 +108,34 @@ function updateWinsDisplay() {
 // ^^ break down into separate functions?
 
 function resetGameBoard() {
-  if (currentGame.won === true || currentGame.totalPlays === 9) {
+  // if (currentGame.won === true || currentGame.totalPlays === 9) {
     currentGame.resetGameClass();
     // for (var i = 0; i < gameBoardBox.length; i++) {
     // debugger
       // gameBoardBox.innerText = '';
-      boardBoxes.classList.add("disable-click");
+      // boardBoxes.classList.add("disable-click");
       heading.innerText = "It's 🧜🏼‍♀️'s turn";
     }
-  }
+  // }
 // }
 
 
 
-function disableBoard() {
-  if (currentGame.won === true) {
-    // for (var i = 0; i < gameBoardBox.length; i++) {
+// function disableBoard() {
+//   if (currentGame.won === true) {
+//     for (var i = 0; i < gameBoardBox.length; i++) {
       // boardBoxes[i].classList.add("disable-click");
       // boardBoxes.innerText = null;
-      gameBoardBox.classList.add("disable-click");
-      console.log("here")
-    }
-  }
+  //     boardBoxes.classList.add("disable-click");
+  //     console.log("here")
+  //   }
+  // }
+// }
 
 
-
-function clearGameBoard() {
-  setTimeout(function() {
-    resetGameBoard()
+// function clearGameBoard() {
+  // setTimeout(function() {
+    // resetGameBoard()
     // for (var i=0; i <gameBoardBox.length; i++) {
       // boardBoxes.innerText = '';
     //   boardBoxes.classList.remove("disable-click");
@@ -143,29 +143,33 @@ function clearGameBoard() {
     //   gameBoardBox.classList.remove("disable-click");
     // }
     // gameBoardBox.classList.remove("disable-click");
-  }, 6000);
+  // }, 6000);
   // gameBoardBox.innerText = '';
-}
+// }
 
 function removeIcons() {
-  // var gameBoardBox = document.querySelectorAll(".game-board-box");
-  if (currentGame.won) {
+
+  if (currentGame.won || currentGame.totalPlays === 9) {
   for (var i = 0; i < gameBoardBox.length; i++) {
-    // debugger
     gameBoardBox[i].innerText = '';
+    boardBoxes.classList.remove("disable-click");
     // boardBoxes.classList.remove("disable-click");
     console.log("hiiii")
     // gameBoardBox.classList.remove("disable-click");
 }
 }
+resetGameBoard();
 }
 
 function winGame() {
+  if (currentGame.won) {
+  boardBoxes.classList.add("disable-click");
   updateWinsDisplay();
   displayWinner();
-  disableBoard();
+  // disableBoard();
   // clearGameBoard();
-  resetGameBoard();
+  // resetGameBoard();
   setTimeout(removeIcons, 5000);
   // removeIcons();
+}
 }
