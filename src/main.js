@@ -7,7 +7,7 @@ var heading = document.getElementById("header");
 var playerOneWins = document.getElementById("mermaidWins");
 var playerTwoWins = document.getElementById("fishWins");
 var boardBoxes = document.getElementById("gameBoard");
-var gameBoardBox = document.querySelector("game-board-box");
+var gameBoardBox = document.querySelectorAll(".game-board-box");
 
 
 // EVENT LISTENERS
@@ -54,8 +54,10 @@ function playTurn(event) {
 
 function updatePlayerTurnDisplay() {
   if (currentGame.turn === currentGame.player1 && currentGame.won === false) {
+    console.log("here")
     heading.innerText = "It's 🧜🏼‍♀️ 's turn";
-  } else if (currentGame.turn === currentGame.player2 && currentGame.won === false) {
+  // } else currentGame.turn === currentGame.player2 && currentGame.won === false {
+  } else {
     heading.innerText = "It's 🐠 's turn";
   }
 }
@@ -63,20 +65,25 @@ function updatePlayerTurnDisplay() {
 function displayWinner() {
   if (currentGame.won === true && currentGame.turn === currentGame.player1) {
     heading.innerText = "🐠 won!";
+    console.log("fishwins")
   } else if (currentGame.won === true && currentGame.turn === currentGame.player2) {
+    console.log("mermaidwins")
     heading.innerText = "🧜 won!";
-  } else if (currentGame.won === false && currentGame.totalPlays === 9) {
+  } else if(!currentGame.won && currentGame.totalPlays === 9) {
+    console.log("draw")
     heading.innerText = "It's a draw!";
   }
 }
 
+
 function displayPlayerIcon() {
   if (currentGame.turn === currentGame.player1) {
     event.target.innerText = '🧜🏼‍♀️';
-    event.target.classList.add("disable-click");
+    console.log(event.target.id)
+    // event.target.classList.add("disable-click");
   } else if (currentGame.turn === currentGame.player2) {
     event.target.innerText = '🐠';
-    event.target.classList.add("disable-click");
+    // event.target.classList.add("disable-click");
   }
 }
 
@@ -103,46 +110,62 @@ function updateWinsDisplay() {
 function resetGameBoard() {
   if (currentGame.won === true || currentGame.totalPlays === 9) {
     currentGame.resetGameClass();
-    // for (var i = 0; i < boardBoxes.length; i++) {
-      boardBoxes.innerText = null;
-      gameBoardBox.classList.remove("disable-click");
+    // for (var i = 0; i < gameBoardBox.length; i++) {
+    // debugger
+      // gameBoardBox.innerText = '';
+      boardBoxes.classList.add("disable-click");
+      heading.innerText = "It's 🧜🏼‍♀️'s turn";
     }
-    heading.innerText = "It's 🧜🏼‍♀️'s turn";
   }
+// }
+
 
 
 function disableBoard() {
   if (currentGame.won === true) {
     // for (var i = 0; i < gameBoardBox.length; i++) {
       // boardBoxes[i].classList.add("disable-click");
-      boardBoxes.classList.add("disable-click");
+      // boardBoxes.innerText = null;
+      gameBoardBox.classList.add("disable-click");
+      console.log("here")
     }
   }
-// }
+
+
 
 function clearGameBoard() {
-  setTimeout(function() {resetGameBoard()}, 4000);
+  setTimeout(function() {
+    resetGameBoard()
+    // for (var i=0; i <gameBoardBox.length; i++) {
+      // boardBoxes.innerText = '';
+    //   boardBoxes.classList.remove("disable-click");
+    //   console.log("hiiii")
+    //   gameBoardBox.classList.remove("disable-click");
+    // }
+    // gameBoardBox.classList.remove("disable-click");
+  }, 6000);
+  // gameBoardBox.innerText = '';
 }
 
-// function playTurn(event) {
-//   for (var i = 0; i < boardBoxes.length; i++) {
-//     if (event.target.id === boardBoxes[i].id) {
-//       currentGame.assignPlayerSpace(boardBoxes[i].id);
-//     }
-//   }
-//   displayPlayerIcon();
-//   currentGame.tallyPlays();
-//   currentGame.toggleTurn();
-//   updatePlayerTurnDisplay();
-//   currentGame.checkPlayerOneWin();
-//   currentGame.checkPlayerTwoWin();
-//   winGame();
-// }
+function removeIcons() {
+  // var gameBoardBox = document.querySelectorAll(".game-board-box");
+  if (currentGame.won) {
+  for (var i = 0; i < gameBoardBox.length; i++) {
+    // debugger
+    gameBoardBox[i].innerText = '';
+    // boardBoxes.classList.remove("disable-click");
+    console.log("hiiii")
+    // gameBoardBox.classList.remove("disable-click");
+}
+}
+}
 
 function winGame() {
+  updateWinsDisplay();
+  displayWinner();
   disableBoard();
-  // displayWinner();
-  // updateWinsDisplay();
   // clearGameBoard();
   resetGameBoard();
+  setTimeout(removeIcons, 5000);
+  // removeIcons();
 }

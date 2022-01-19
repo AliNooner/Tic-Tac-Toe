@@ -10,6 +10,7 @@ class Game {
 
 tallyPlays() {
   this.totalPlays++;
+  console.log(this.totalPlays)
 }
 
 resetGameClass() {
@@ -26,7 +27,8 @@ checkPlayerOneWin() {
   (this.gameBoard[0] === 1 && this.gameBoard[1] === 1 && this.gameBoard[2] === 1) ||
   (this.gameBoard[3] === 1 && this.gameBoard[4] === 1 && this.gameBoard[5] === 1) ||
   (this.gameBoard[6] === 1 && this.gameBoard[7] === 1 && this.gameBoard[8] === 1) ||
-  (this.gameBoard[0] === 1 && this.gameBoard[4] === 1 && this.gameBoard[8])) {
+  (this.gameBoard[0] === 1 && this.gameBoard[4] === 1 && this.gameBoard[8] === 1) ||
+  (this.gameBoard[2] === 1 && this.gameBoard[4] === 1 && this.gameBoard[6] === 1)) {
     this.won = true;
     this.player1.addWin();
   }
@@ -39,7 +41,8 @@ checkPlayerTwoWin() {
   (this.gameBoard[0] === 2 && this.gameBoard[1] === 2 && this.gameBoard[2] === 2) ||
   (this.gameBoard[3] === 2 && this.gameBoard[4] === 2 && this.gameBoard[5] === 2) ||
   (this.gameBoard[6] === 2 && this.gameBoard[7] === 2 && this.gameBoard[8] === 2) ||
-  (this.gameBoard[0] === 2 && this.gameBoard[4] === 2 && this.gameBoard[8])) {
+  (this.gameBoard[0] === 2 && this.gameBoard[4] === 2 && this.gameBoard[8] === 2) ||
+  (this.gameBoard[2] === 2 && this.gameBoard[4] === 2 && this.gameBoard[6] === 2)) {
     this.won = true;
     this.player2.addWin();
   }
