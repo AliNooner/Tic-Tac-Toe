@@ -38,10 +38,10 @@ h1 {
 .middle-section {
   align-items: center;
   background: #56CFE1;
-  border-left: 3px solid black;
-  border-right: 3px solid black;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
+  /* border-left: 3px solid black; */
+  /* border-right: 3px solid black; */
+  /* border-top: 3px solid black; */
+  /* border-bottom: 3px solid black; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,8 +104,16 @@ h2 {
 
 .player-fish {
   background-color: #80FFDB;
+  border
+}
+
+.mermaid{
+  height: 130px;
+  padding-top: 14px;
 }
 
 .fish {
-  height: 150px;
+  padding-top: 30px;;
+  height: 120px;
+  /* border-radius: 30px;; */
 }
