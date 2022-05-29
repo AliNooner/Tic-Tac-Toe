@@ -29,7 +29,9 @@ Tic Tac Toe is a fun, easy game that people of all ages can enjoy! For this unde
 
 ## Illustration
 
-<img width="745" alt="Screen Shot 2022-01-18 at 9 36 28 PM" src="https://user-images.githubusercontent.com/92279624/150059385-8b404eb5-dc2e-483a-ab3e-f495647e22c6.png">
+<img width="743" alt="Screen Shot 2022-05-29 at 2 39 31 PM" src="https://user-images.githubusercontent.com/92279624/170888608-8e910f00-ba80-43d3-9587-8900f22f32ec.png">
+
+<img width="743" alt="Screen Shot 2022-05-29 at 2 39 56 PM" src="https://user-images.githubusercontent.com/92279624/170888616-6a291a76-6e06-4670-855f-62d5204868cc.png">
 
 
 ## Possible Future Extensions
